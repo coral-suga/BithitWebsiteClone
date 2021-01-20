@@ -90,20 +90,23 @@ export default function AlbumSlideShow(params) {
     }
     return (
         <>
-            <div onClick={() => params.onAlbumClick()}>
+            <div onClick={(e) => { e.preventDefault(); params.onAlbumClick() }}>
                 <img
                     className={classes.img}
                     src={showImage()}
                     alt={steps[activeStep].label}
                 />
+
+            </div>
+            <div>
                 <MobileStepper variant={null} steps={5} position='static' activeStep={activeStep}
                     nextButton={
-                        <IconButton onClick={() => setActiveStep(activeStep + 1)} disabled={activeStep == (steps.length - 1)}>
+                        <IconButton onClick={(e) => { setActiveStep(activeStep + 1); e.preventDefault(); }} disabled={activeStep == (steps.length - 1)}>
                             <KeyboardArrowRight />
                         </IconButton>
                     }
                     backButton={
-                        <IconButton onClick={() => setActiveStep(activeStep - 1)} disabled={activeStep == 0}>
+                        <IconButton onClick={(e) => { e.preventDefault(); setActiveStep(activeStep - 1); }} disabled={activeStep == 0}>
                             <KeyboardArrowLeft />
                         </IconButton>
                     }

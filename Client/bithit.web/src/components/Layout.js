@@ -1,16 +1,15 @@
+import { Button, Dialog, Divider, FormControl, Grid, IconButton, List, ListItem, makeStyles, Modal, Toolbar, Typography } from '@material-ui/core';
 import React, { useState } from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import { Button, Dialog, Divider, FormControl, IconButton, List, ListItem, makeStyles, Modal, Toolbar, Typography } from '@material-ui/core';
+import { withRouter } from 'react-router';
 import MenuIcon from '@material-ui/icons/Menu';
-import CloseIcon from '@material-ui/icons/Close';
+import AlbumSlideShow from './AlbumSlideShow';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import FacebookIcon from '@material-ui/icons/Facebook';
+import AppBar from '@material-ui/core/AppBar';
+import CloseIcon from '@material-ui/icons/Close';
 import YouTubeIcon from '@material-ui/icons/YouTube';
-import be from '../assets/be.png';
-import AlbumSlideShow from './AlbumSlideShow';
-import ContactlessIcon from '@material-ui/icons/Contactless';
-import AppleIcon from '@material-ui/icons/Apple';
-import MenuList from './MenuList';
+
+import WithRoot from './WithRoot';
 const styles = makeStyles((theme) => ({
     root: {
         flexGrow: 1
@@ -65,6 +64,9 @@ const styles = makeStyles((theme) => ({
     listItem: {
         justifyContent: 'center'
     },
+    musiclistItem: {
+        justifyContent: 'left'
+    },
     socialBtn: {
         color: '#C0C0C0'
     },
@@ -82,7 +84,8 @@ const styles = makeStyles((theme) => ({
     musiclist: {
         textAlign: 'right',
         lineHeight: "3",
-        justifyContent: 'center'
+        justifyContent: 'left',
+        fontSize: 18
 
     },
     musicContent: {
@@ -95,119 +98,114 @@ const styles = makeStyles((theme) => ({
     },
     icon: {
         flexGrow: 1
+    },
+    main:{
+        flexGrow:1,
+        height:'100vh',
+        overflow:'auto'
     }
 }));
-export default function Layout() {
-    const [isOpen, setOpen] = useState(false);
-    const [isMusicChartOpen, setMusicChartOpen] = useState(false);
-    const [anchorE1, setAnchorE1] = useState(null);
-    const open = Boolean(anchorE1);
+
+function Layout(params) {
     const classes = styles();
+    const [isOpen, setOpen] = useState(false);
+    const [isMenuOpen, setMenuOpen] = useState(false);
+    const handleClick = (e) => {
+        setOpen(true);
+        let data = {
+            isOpen: true
+        }
+        e.preventDefault();
+    }
     const modelClose = () => {
         setOpen(false);
     }
-    const albumModelClose = () => {
-        setMusicChartOpen(false);
-    }
-    const onAlbumClick = () => {
-        setMusicChartOpen(true);
-    }
-    const handleClick = (event) => {
-        setAnchorE1(event.currentTarget)
-    }
-    const handleClose = () => {
-        setAnchorE1(null);
+    const itemClick = (e) => {
+        setOpen(true);
+        setMenuOpen(!isMenuOpen);
     }
     return (
-        <div>
+        <>
             <AppBar position='fixed' className={classes.appbarHeader}>
                 <Toolbar>
                     <IconButton edge="start" className={classes.menuBtn} size="medium"
-                        color='inherit' aria-label='menu' onClick={(e) => { setOpen(true); e.preventDefault(); }}>
+                        color='inherit' aria-label='menu' onClick={(e) => {
+                            handleClick(e);
+                        }}>
                         <MenuIcon />
                     </IconButton>
                     <Typography className={classes.title} />
                     <Button className={classes.btn} color='inherit' >ENG</Button>
                 </Toolbar>
             </AppBar>
-            <AlbumSlideShow onAlbumClick={onAlbumClick} />
-            <Dialog fullScreen open={isOpen} onClose={modelClose} className={classes.dialog}
-                //onClick={(e) => { e.preventDefault(); modelClose() }}
-                PaperProps={{
-                    style: {
-                        backgroundColor: 'transparent',
-                        boxShadow: 'none',
-                    },
-                }}
-            >
-                <div className={classes.content}>
-                    <IconButton className={classes.closebtn} onClick={(e) => { modelClose(); e.preventDefault() }} >
-                        <CloseIcon />
-                    </IconButton>
-                    <FormControl className={classes.form}>
-                        <List className={classes.list}>
-                            <br />
-                            <ListItem className={classes.listItem}>HOME</ListItem>
-                            <Divider className={classes.divider} color="inherit" />
-                            <ListItem className={classes.listItem} aria-haspopup="true"
-                             aria-controls={open ? 'menu-list-grow' : undefined} onClick={(e) => { 
-                                handleClick(e); e.preventDefault(); }}>BTS</ListItem>
-                            <Divider className={classes.divider} />
-                            <ListItem className={classes.listItem}>TOMORROW&TOGETHER</ListItem>
-                            <Divider className={classes.divider} />
-                            <ListItem className={classes.listItem}>LEE HYUN</ListItem>
-                            <Divider className={classes.divider} />
-                        </List>
-                        <MenuList anchorE1={anchorE1} onClose={handleClose} open={open} />
-                    </FormControl>
+            <main className={classes.main}>
+                <Dialog fullScreen open={isOpen} onClose={modelClose} className={classes.dialog}
+                    //onClick={(e) => { e.preventDefault(); modelClose() }}
+                    PaperProps={{
+                        style: {
+                            backgroundColor: 'transparent',
+                            boxShadow: 'none',
+                        },
+                    }}
+                >
+                    <div className={classes.content}>
+                        <IconButton className={classes.closebtn} onClick={(e) => { modelClose(); e.preventDefault() }} >
+                            <CloseIcon />
+                        </IconButton>
+                        <div>
+                            <Grid container spacing={1}>
+                                <Grid item xs={1} />
+                                <Grid item xs={isMenuOpen ? 8 : 10}>
+                                    <div>
+                                        <FormControl className={classes.form}>
+                                            <List className={classes.list}>
+                                                <br />
+                                                <ListItem className={classes.listItem}>HOME</ListItem>
+                                                <Divider className={classes.divider} color="inherit" />
+                                                <ListItem className={classes.listItem} onClick={(e) => {
+                                                    itemClick(e);
+                                                }}>BTS</ListItem>
+                                                <Divider className={classes.divider} />
+                                                <ListItem className={classes.listItem}>TOMORROW&TOGETHER</ListItem>
+                                                <Divider className={classes.divider} />
+                                                <ListItem className={classes.listItem}>LEE HYUN</ListItem>
+                                                <Divider className={classes.divider} />
+                                            </List>
 
-                </div>
-            </Dialog>
-            <Dialog fullScreen open={isMusicChartOpen} aria-labelledby="simple-dialog-title"
-                onClick={albumModelClose}
-                onClose={albumModelClose} className={classes.dialog}
-                PaperProps={{
-                    style: {
-                        backgroundColor: 'transparent',
-                        boxShadow: 'none',
-                    },
-                }}
-            >
-                <div className={classes.musicContent}>
-                    <IconButton className={classes.closebtn} onClick={(e) => { albumModelClose(); e.preventDefault() }} >
-                        <CloseIcon />
-                    </IconButton>
-                    <FormControl className={classes.form}>
-                        <List className={classes.musiclist}>
-                            <br />
-                            <ListItem className={classes.listItem}>MELON</ListItem>
-                            <Divider className={classes.divider} color="inherit" />
-                            <ListItem className={classes.listItem}>FLO</ListItem>
-                            <Divider className={classes.divider} />
-                            <ListItem className={classes.listItem}>GENIE</ListItem>
-                            <Divider className={classes.divider} />
-                            <ListItem className={classes.listItem}>BUGS</ListItem>
-                            <Divider className={classes.divider} />
-                            <ListItem className={classes.listItem}>
-                                <IconButton className={classes.closebtn} size="medium"><AppleIcon /></IconButton>
-                                APPLE MUSIC</ListItem>
-                            <Divider className={classes.divider} />
-                            <ListItem className={classes.listItem}>
-                                <div className={classes.icon}>
-                                    <IconButton className={classes.closebtn} size="medium"><ContactlessIcon /></IconButton>
-                                    SPOTIFY</div>
-                            </ListItem>
-                            <Divider className={classes.divider} />
-                            <ListItem className={classes.listItem}>AMAZON MUSIC</ListItem>
-                            <Divider className={classes.divider} />
-                            <ListItem className={classes.listItem}>Album Info</ListItem>
-                            <Divider className={classes.divider} />
-                        </List>
-                    </FormControl>
+                                        </FormControl>
+                                    </div>
+                                </Grid>
+                                <Grid item xs={3}>
+                                    <div hidden={!isMenuOpen}>
+                                        <FormControl className={classes.form}>
+                                            <List className={classes.musiclist}>
+                                                <br />
+                                                <ListItem className={classes.musiclistItem}>HOME</ListItem>
+                                                <ListItem className={classes.musiclistItem}
+                                                    onClick={(e) => { 
+                                                        setMenuOpen(false);
+                                                        setOpen(false);
+                                                        params.history.push('/profile')
+                                                     }}
+                                                >PROFILE</ListItem>
+                                                <ListItem className={classes.musiclistItem}>DISCOGRAPHY</ListItem>
+                                                <ListItem className={classes.musiclistItem}>SCHEDULE</ListItem>
+                                                <ListItem className={classes.musiclistItem}>TOUR</ListItem>
+                                            </List>
 
-                </div>
-            </Dialog>
-            <AppBar position='relative' className={classes.appbarFooter}>
+                                        </FormControl>
+                                    </div>
+                                </Grid>
+                                <Grid item xs={isMenuOpen ? 1 : 1} />
+                            </Grid>
+
+                        </div>
+
+                    </div>
+                </Dialog>
+                {params.children}
+            </main>
+            <AppBar position='static' className={classes.appbarFooter}>
                 <Toolbar>
                     <IconButton className={classes.socialBtn} ><TwitterIcon /></IconButton>
                     <IconButton className={classes.socialBtn} ><FacebookIcon /></IconButton>
@@ -216,6 +214,7 @@ export default function Layout() {
                     <Typography className={classes.license}>COPYRIGHT © 2020 BIG HIT ENTERTAINMENT ALL RIGHTS RESERVED</Typography>
                 </Toolbar>
             </AppBar>
-        </div>
+        </>
     )
 }
+export default WithRoot((withRouter(props => <Layout  {...props} />)));
