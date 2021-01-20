@@ -7,6 +7,7 @@ import Profile from './components/Profile';
 import Test from './Test.js'
 import Discography from './components/Discography';
 import AlbumDetail from './components/AlbumDetail';
+import AlbumInfo from './components/AlbumInfo';
 export default () => {
   return (
     <Layout>
@@ -14,6 +15,7 @@ export default () => {
       <Route path='/profile' component={Profile} />
       <Route path='/discography' component={Discography} />
       <Route path='/detailAlbum' component={AlbumDetail} />
+      <Route path='/albumInfo' component={AlbumInfo} />
     </Layout>
   );
 }

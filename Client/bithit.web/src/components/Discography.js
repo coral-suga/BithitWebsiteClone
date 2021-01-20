@@ -14,6 +14,12 @@ const styles = makeStyles((theme) => ({
 }));
 export default function Discography(params) {
     const classes = styles();
+    const goToDetail = (album) => {
+        let data = {
+            name: album
+        }
+        params.history.push('/albumInfo',data);
+    }
     return (
         <div style={{ backgroundColor: '#353332' }}>
             <div style={{ height: '20vh' }}></div>
@@ -23,11 +29,12 @@ export default function Discography(params) {
                     <Grid item xs={1} />
                     <Grid item xs={3}>
                         <div className='imgContent'>
-                            <img src={be} className='image' onClick={(e)=>{
-                                params.history.push('/detailAlbum')
-                            }}/>
-                            <div onClick={(e)=>{
-                                params.history.push('/detailAlbum')
+                            <img src={be} className='image' onClick={(e) => {
+                                //params.history.push('/detailAlbum')
+                                goToDetail("BE");
+                            }} />
+                            <div onClick={(e) => {
+                                goToDetail("BE");
                             }} className='imgDesc'>
                                 <p className='text'>DELUX EDITION</p>
                                 <p className='text'>BE</p>
@@ -35,8 +42,8 @@ export default function Discography(params) {
                         </div>
                     </Grid>
                     <Grid item xs={3}>
-                        <div className='imgContent'>
-                            <img src={dynamite} className='image' />
+                        <div className='imgContent' onClick={()=> goToDetail("Dynamite")}>
+                            <img src={dynamite} className='image'/>
                             <div className='imgDesc'>
                                 <p className='text'>DIGITAL SINGLE</p>
                                 <p className='text'>DYNAMITE</p>
