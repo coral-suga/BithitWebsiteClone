@@ -25,7 +25,7 @@ const styles = makeStyles((theme) => ({
 export default function Profile(params) {
     const classes = styles();
     return (
-        <div style={{ backgroundColor: 'black' }}>
+        <div style={{ backgroundColor: 'black' }}>           
             <div style={{ backgroundColor: '#1C1C1C' }}>
                 <Grid container spacing={1}>
                     <Grid item xs={1} />

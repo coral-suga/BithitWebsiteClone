@@ -99,10 +99,10 @@ const styles = makeStyles((theme) => ({
     icon: {
         flexGrow: 1
     },
-    main:{
-        flexGrow:1,
-        height:'100vh',
-        overflow:'auto'
+    main: {
+        flexGrow: 1,
+        height: '100vh',
+        overflow: 'auto'
     }
 }));
 
@@ -182,13 +182,19 @@ function Layout(params) {
                                                 <br />
                                                 <ListItem className={classes.musiclistItem}>HOME</ListItem>
                                                 <ListItem className={classes.musiclistItem}
-                                                    onClick={(e) => { 
+                                                    onClick={(e) => {
                                                         setMenuOpen(false);
                                                         setOpen(false);
                                                         params.history.push('/profile')
-                                                     }}
+                                                    }}
                                                 >PROFILE</ListItem>
-                                                <ListItem className={classes.musiclistItem}>DISCOGRAPHY</ListItem>
+                                                <ListItem className={classes.musiclistItem}
+                                                    onClick={(e) => {
+                                                        setMenuOpen(false);
+                                                        setOpen(false);
+                                                        params.history.push('/discography')
+                                                    }}
+                                                >DISCOGRAPHY</ListItem>
                                                 <ListItem className={classes.musiclistItem}>SCHEDULE</ListItem>
                                                 <ListItem className={classes.musiclistItem}>TOUR</ListItem>
                                             </List>
