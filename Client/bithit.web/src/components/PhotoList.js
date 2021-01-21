@@ -1,6 +1,7 @@
 import { Grid, IconButton, makeStyles, MobileStepper } from '@material-ui/core';
 import React, { useEffect, useState } from 'react'; import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
+import '../custom.css'
 const useStyle = makeStyles((theme) => ({
     pre: {
         cursor: 'pointer',
@@ -22,7 +23,9 @@ const useStyle = makeStyles((theme) => ({
         display: 'block',
         marginTop: '8%',
         verticalAlign: 'middle',
-        width: '100%'
+        // width: '100vh',
+        // height: '120vh'
+        maxWidth: '100%'
     },
     slideshow: {
         maxWidth: '1000px',
@@ -53,28 +56,38 @@ export default function PhotoList(params) {
         setSteps(params.images);
         setIsData(true);
         setActiveStep(0);
-    }, [params.images,isData])
+    }, [params.images, isData])
     return (
         <>
             {isData ?
                 <Grid container spacing={1}>
                     <Grid item xs={12}>
-                        <img
+                    <img
                             className={classes.img}
                             src={steps[activeStep].img}
-                        />
 
+                        />
+                        
                     </Grid>
+                    
                     <Grid item xs={12}>
                         <MobileStepper variant={null} steps={5} position='static' activeStep={activeStep}
                             style={{ backgroundColor: '#1E1E1D' }}
                             nextButton={
-                                <IconButton onClick={(e) => { setActiveStep(activeStep + 1); e.preventDefault(); }} disabled={activeStep == (steps.length - 1)}>
+                                <IconButton onClick={(e) => {
+                                    // setActiveStep(activeStep + 1); 
+                                    e.preventDefault();
+                                    (steps.length - 1 <= activeStep ? setActiveStep(activeStep - (steps.length - 1)) : setActiveStep(activeStep + 1))
+                                }}
+                                >
                                     <KeyboardArrowRight />
                                 </IconButton>
                             }
                             backButton={
-                                <IconButton onClick={(e) => { e.preventDefault(); setActiveStep(activeStep - 1); }} disabled={activeStep == 0}>
+                                <IconButton onClick={(e) => {
+                                    e.preventDefault();
+                                    steps.length == activeStep ? setActiveStep(0) : setActiveStep(activeStep - 1);
+                                }} disabled={activeStep == 0}>
                                     <KeyboardArrowLeft />
                                 </IconButton>
                             }

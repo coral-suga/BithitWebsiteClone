@@ -160,7 +160,11 @@ function Layout(params) {
                                         <FormControl className={classes.form}>
                                             <List className={classes.list}>
                                                 <br />
-                                                <ListItem className={classes.listItem}>HOME</ListItem>
+                                                <ListItem className={classes.listItem} onClick={() => {
+                                                    params.history.push('/');
+                                                    setOpen(false);
+                                                    setMenuOpen(false);
+                                                }}>HOME</ListItem>
                                                 <Divider className={classes.divider} color="inherit" />
                                                 <ListItem className={classes.listItem} onClick={(e) => {
                                                     itemClick(e);
@@ -180,7 +184,13 @@ function Layout(params) {
                                         <FormControl className={classes.form}>
                                             <List className={classes.musiclist}>
                                                 <br />
-                                                <ListItem className={classes.musiclistItem}>HOME</ListItem>
+                                                <ListItem className={classes.musiclistItem}
+                                                    onClick={() => {
+                                                        params.history.push('/');
+                                                        setOpen(false);
+                                                        setMenuOpen(false);
+                                                    }}
+                                                >HOME</ListItem>
                                                 <ListItem className={classes.musiclistItem}
                                                     onClick={(e) => {
                                                         setMenuOpen(false);

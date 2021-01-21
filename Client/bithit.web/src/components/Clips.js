@@ -7,22 +7,23 @@ const styles = makeStyles(theme => ({
 }))
 export default function Clips(params) {
     const classes = styles();
+    console.log(params)
     return (
         <>
             {
-                params.clips.length > 1 ?
+                params.clipsVd.length > 1 ?
                     <Grid container spacing={1}>
                         {
-                            params.clips.map((clip, index) => {
-                                return <Grid item xs={4}><video className={classes.vd} src={clip} /></Grid>
+                            params.clipsVd.map((clip, index) => {
+                                return <Grid item xs={4}><video className={classes.vd} src={clip.clips} /></Grid>
                             })
                         }
 
                     </Grid> :
                     <Grid container spacing={1}>
                         {
-                            params.clips.map((clip, index) => {
-                                return <Grid item xs={12}><video className={classes.vd} src={clip} /></Grid>
+                            params.clipsVd.map((clip, index) => {
+                                return <Grid item xs={12}><video className={classes.vd} src={clip.clips} /></Grid>
                             })
                         }
 

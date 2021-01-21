@@ -19,6 +19,7 @@ import TrackList from './TrackList';
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import { data } from '../data.js';
 import PhotoList from './PhotoList';
+import _ from 'lodash';
 const styles = makeStyles((theme) => ({
     img: {
         marginTop: 'auto',
@@ -39,30 +40,64 @@ export default function AlbumInfo(params) {
     const [album, setAlbum] = useState([]);
     const [albumName, setAlbumName] = useState([]);
     const [isData, setIsData] = useState(false);
-    const [imgList,setImgList]=useState(data.dynamite.PtButton[0].image);
+    const [imgList, setImgList] = useState();
+    const [bgcolor, setBgColor] = useState();
+    const [color, setColor] = useState();
+    const [btnName, setBtnName] = useState();
+    const [imgName, setImgName] = useState();
+    const [conceptName, setConceptName] = useState();
     const classes = styles();
     useEffect(() => {
-        let albumN = params.location.state.name;
+        let albumN = params.location.state ? params.location.state.name : '';
+        let color1 = params.location.state ? params.location.state.color1 : '#353332';
+        let color2 = params.location.state ? params.location.state.color2 : '#353332';
         setAlbumName(name);
+        setColor(color1);
+        setBgColor(color2)
         if (albumN == "BE") {
             setAlbum(data.be);
+            setImgList(data.be.PtButton[0].image)
+            setImgName(data.be.PtButton[0].name)
+            setConceptClips(data.be.ConceptClips[0].clipVd)
+            setUrl(data.be.Video.url)
+            setConceptName(data.be.ConceptClips[0].name)
+            setBtnName(data.be.Video.name)
         }
         else if (albumN == "Dynamite") {
             setAlbum(data.dynamite);
+            setImgList(data.dynamite.PtButton[0].image)
+            setUrl(data.dynamite.Video.url)
+            setImgName(data.dynamite.PtButton[0].name)
+            setBtnName(data.dynamite.Video.name)
+            //setConceptClips(data.dynamite.ConceptClips[0].clipVd)
+        }
+        else if (albumN == "Persona") {
+            setAlbum(data.persona);
+            setImgList(data.persona.PtButton[0].image)
+            setUrl(data.persona.Video.url)
+            setImgName(data.persona.PtButton[0].name)
+            setBtnName(data.persona.Video.name)
+            //setConceptClips(data.dynamite.ConceptClips[0].clipVd)
         }
         else {
             setAlbum(data.mots);
+            setImgList(data.mots.PtButton[0].image)
+            setUrl(data.mots.Video.url)
+            setImgName(data.mots.PtButton[0].name)
+
+            setBtnName(data.mots.Video.name)
         }
         setIsData(true);
-        setUrl(album.Video)
-    }, [albumName, isData])
+
+    }, [albumName, isData, color])
     const detailInfo = (e) => {
-        console.log(e)
-        setImgList(e);
+        setImgName(e.name)
+        setImgList(e.image);
     }
+    let c = '"' + color + '"';
     return (
         isData ?
-            <div style={{ backgroundColor: '#353332', height: 'auto' }}>
+            <div style={{ backgroundColor: bgcolor, height: 'auto' }}>
                 <div style={{ height: '20vh' }}></div>
                 <Grid container spacing={1}>
                     <Grid item xs={2} />
@@ -77,8 +112,7 @@ export default function AlbumInfo(params) {
                     <Grid item xs={8}>
                         <Grid container spacing={10}>
                             <Grid item xs={6}>
-
-                                <img src={album.Image[0].img} className={classes.img} />
+                            <img src={album.Image[0].img} className={classes.img} />
                             </Grid>
                             <Grid item xs={6}>
                                 <div style={{ color: 'white' }}>
@@ -102,25 +136,47 @@ export default function AlbumInfo(params) {
                     </Grid>
                     <Grid item xs={2} />
                 </Grid>
-                <div style={{ backgroundColor: '#1E1E1D' }}>
+                <div style={{ backgroundColor: color }}>
                     <Grid container spacing={1}>
                         <Grid item xs={2} />
                         <Grid item xs={8}>
                             <p style={{ textAlign: 'center', color: 'white', fontSize: '45px', fontWeight: 'bold' }}>VIDEO</p>
 
-                            <iframe style={{ backgroundColor: 'black' }} width="100%" height='700vh' src={url} />
+                            <iframe style={{ backgroundColor: color }} width="100%" height='700vh' src={url} />
                         </Grid>
                         <Grid item xs={2} />
                     </Grid>
                 </div>
-                <div style={{ backgroundColor: '#1E1E1D' }}>
+                <div style={{ backgroundColor: color }}>
                     <Grid container spacing={1}>
                         <Grid item xs={2} />
                         <Grid item xs={8}>
                             <div style={{ textAlign: 'center', marginTop: '2%' }}>
                                 {album.VdButton.map((btn, index) => {
                                     return <Button className={classes.btn}
-                                        onClick={() => { setUrl(btn.url) }}>{btn.name}</Button>
+                                        key={index}
+                                        style={{ color: (btn.name == btnName ? "white" : "#898588") }}
+                                        onClick={() => { setUrl(btn.url); setBtnName(btn.name); }}>{btn.name}</Button>
+                                })}
+
+                            </div>
+                            <Divider />
+                            <div style={{ textAlign: 'center', marginTop: '2%' }}>
+                                {_.map(album.Verion,(btn, index) => {
+                                    return <Button className={classes.btn}
+                                        key={index}
+                                        style={{ color: (btn.name == btnName ? "white" : "#898588") }}
+                                        onClick={() => { setUrl(btn.url); setBtnName(btn.name); }}>{btn.name}</Button>
+                                })}
+
+                            </div>
+                            <Divider />
+                            <div style={{ textAlign: 'center', marginTop: '2%' }}>
+                                {_.map(album.Special, (btn, index) => {
+                                    return <Button className={classes.btn}
+                                    key={index}
+                                        style={{ color: (btn.name == btnName ? "white" : "#898588") }}
+                                        onClick={() => { setUrl(btn.url); setBtnName(btn.name); }}>{btn.name}</Button>
                                 })}
 
                             </div>
@@ -136,34 +192,40 @@ export default function AlbumInfo(params) {
                             <PhotoList images={imgList} />
                             <div style={{ textAlign: 'center', marginTop: '2%' }}>
                                 {album.PtButton.map((btn, index) => {
-                                    return <Button className={classes.btn} onClick={(e) => { detailInfo(btn.image) }}>{btn.name}</Button>
+                                    return <Button
+                                        key={index}
+                                        style={{ color: (btn.name == imgName ? "white" : "#898588") }}
+                                        className={classes.btn} onClick={(e) => { detailInfo(btn) }}>{btn.name}</Button>
                                 })}
                             </div>
                         </div>
                     </Grid>
                     <Grid item xs={2} />
                 </Grid>
-                {/* <div style={{ backgroundColor: '#1E1E1D', marginTop: '2%', marginBottom: '2%' }}>
+                <div hidden={album.ConceptClips.length <= 0} style={{ backgroundColor: '#1E1E1D', marginTop: '2%', marginBottom: '2%' }}>
                     <Grid container spacing={1}>
                         <Grid item xs={2} />
                         <Grid item xs={8}>
                             <div>
                                 <p style={{ textAlign: 'center', color: 'white', fontSize: '45px', fontWeight: 'bold' }}>CONCEPT CLIP</p>
                                 <div style={{ textAlign: 'center', marginTop: '2%', marginBottom: '3%' }}>
-                                    <Button className={classes.btn} onClick={(e) => {
-                                        setConceptClips([mirror]);
-                                    }}>MIRROR VER.</Button>
-                                    <Button className={classes.btn} onClick={(e) => setConceptClips([ref])}>REFLECTION VER.</Button>
-                                    <Button className={classes.btn} onClick={(e) =>
-                                        setConceptClips([jk, suga, v, jm, gp1, rm, jhope, gp2, jin])
-                                    }>ROOM VER.</Button>
+                                    {album.ConceptClips.map((clip, index) => {
+                                        return <Button className={classes.btn}
+                                            key={index}
+                                            style={{ color: (clip.name == conceptName ? "white" : "#898588") }}
+                                            onClick={(e) => {
+                                                setConceptName(clip.name)
+                                                setConceptClips(clip.clipVd);
+                                            }}>{clip.name}</Button>
+                                    })}
+
                                 </div>
                             </div>
-                            <Clips clips={clips} />
+                            <Clips clipsVd={clips} />
                         </Grid>
                         <Grid item xs={2} />
                     </Grid>
-                </div> */}
+                </div>
                 <Grid container spacing={1}>
                     <Grid item xs={2} />
                     <Grid item xs={8}>
