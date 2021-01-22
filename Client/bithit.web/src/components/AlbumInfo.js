@@ -94,7 +94,7 @@ export default function AlbumInfo(params) {
         setImgName(e.name)
         setImgList(e.image);
     }
-    let c = '"' + color + '"';
+    console.log(album)
     return (
         isData ?
             <div style={{ backgroundColor: bgcolor, height: 'auto' }}>
@@ -155,17 +155,17 @@ export default function AlbumInfo(params) {
                                 {album.VdButton.map((btn, index) => {
                                     return <Button className={classes.btn}
                                         key={index}
-                                        style={{ color: (btn.name == btnName ? "white" : "#898588") }}
+                                        style={{ color: (btn.name == btnName ? "white" : "#BFBEBE") }}
                                         onClick={() => { setUrl(btn.url); setBtnName(btn.name); }}>{btn.name}</Button>
                                 })}
 
                             </div>
-                            <Divider />
+                            <Divider hidden={album.Version.length<=0}/>
                             <div style={{ textAlign: 'center', marginTop: '2%' }}>
-                                {_.map(album.Verion,(btn, index) => {
+                                {_.map(album.Version,(btn, index) => {
                                     return <Button className={classes.btn}
                                         key={index}
-                                        style={{ color: (btn.name == btnName ? "white" : "#898588") }}
+                                        style={{ color: (btn.name == btnName ? "white" : "#BFBEBE") }}
                                         onClick={() => { setUrl(btn.url); setBtnName(btn.name); }}>{btn.name}</Button>
                                 })}
 
@@ -175,7 +175,7 @@ export default function AlbumInfo(params) {
                                 {_.map(album.Special, (btn, index) => {
                                     return <Button className={classes.btn}
                                     key={index}
-                                        style={{ color: (btn.name == btnName ? "white" : "#898588") }}
+                                        style={{ color: (btn.name == btnName ? "white" : "#BFBEBE") }}
                                         onClick={() => { setUrl(btn.url); setBtnName(btn.name); }}>{btn.name}</Button>
                                 })}
 
@@ -194,7 +194,7 @@ export default function AlbumInfo(params) {
                                 {album.PtButton.map((btn, index) => {
                                     return <Button
                                         key={index}
-                                        style={{ color: (btn.name == imgName ? "white" : "#898588") }}
+                                        style={{ color: (btn.name == imgName ? "white" : "#BFBEBE") }}
                                         className={classes.btn} onClick={(e) => { detailInfo(btn) }}>{btn.name}</Button>
                                 })}
                             </div>
@@ -212,7 +212,7 @@ export default function AlbumInfo(params) {
                                     {album.ConceptClips.map((clip, index) => {
                                         return <Button className={classes.btn}
                                             key={index}
-                                            style={{ color: (clip.name == conceptName ? "white" : "#898588") }}
+                                            style={{ color: (clip.name == conceptName ? "white" : "#BFBEBE") }}
                                             onClick={(e) => {
                                                 setConceptName(clip.name)
                                                 setConceptClips(clip.clipVd);

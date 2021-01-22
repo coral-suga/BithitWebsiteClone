@@ -19,7 +19,7 @@ export const data = {
             { name: "'MV TEASER 2", url: "https://www.youtube.com/embed/gdZLi9oWNZg" },
             { name: "'LIFE GOES ON' MV", url: "https://www.youtube.com/embed/BV2FdDmGiW0" }
         ],
-        Verion: [
+        Version: [
             { name: "'LIFE GOES ON' MV : ON MY PILLOW", url: "https://www.youtube.com/embed/yIvb4csSgcs" },
             { name: "'LIFE GOES ON' MV :IN THE FOREST", url: "https://www.youtube.com/embed/RvcP6V4h_q4" },
             { name: "'LIFE GOES ON' MV :LIKE AN ARROW", url: "https://www.youtube.com/embed/2N-Fsa9Evo0" },
@@ -155,105 +155,103 @@ export const data = {
             { name: "'DYNAMITE' MV (B-SIDE)", url: "https://www.youtube.com/embed/BV2FdDmGiW0" },
             { name: "'DYNAMITE' MV (CHOREOGRAPHY VER.)", url: "https://www.youtube.com/embed/BflFNMl_UWY" }
         ],
-        PtButton: [
-            {
-                name: "CONCEPT PHOTO 1",
-                image: [
-                    { name: "cp1", img: "/assets/mots/cp1/cp1.1.jpg" },
-                    { name: "cp1", img: "/assets/mots/cp1/cp1.2.jpg" },
-                    { name: "cp1", img: "/assets/mots/cp1/cp1.3.jpg" },
-                    { name: "cp1", img: "/assets/mots/cp1/cp1.4.jpg" },
-                    { name: "cp1", img: "/assets/mots/cp1/cp1.5.jpg" },
-                    { name: "cp1", img: "/assets/mots/cp1/cp1.6.jpg" },
-                    { name: "cp1", img: "/assets/mots/cp1/cp1.7.jpg" },
-                    { name: "cp1", img: "/assets/mots/cp1/cp1.8.jpg" },
-                ]
-            },
-            {
-                name: "CONCEPT PHOTO 2",
-                image: [
-                    { name: "cp2", img: "/assets/mots/cp2/cp2.1.jpg" },
-                    { name: "cp2", img: "/assets/mots/cp2/cp2.2.jpg" },
-                    { name: "cp2", img: "/assets/mots/cp2/cp2.3.jpg" },
-                    { name: "cp2", img: "/assets/mots/cp2/cp2.4.jpg" },
-                    { name: "cp2", img: "/assets/mots/cp2/cp2.5.jpg" },
-                    { name: "cp2", img: "/assets/mots/cp2/cp2.6.jpg" },
-                    { name: "cp2", img: "/assets/mots/cp2/cp2.7.jpg" },
-                    { name: "cp2", img: "/assets/mots/cp2/cp2.8.jpg" },
-                ]
-            },
-            {
-                name: "CONCEPT PHOTO 3",
-                image: [
-                    { name: "cp3", img: "/assets/mots/cp3/cp3.1.jpg" },
-                    { name: "cp3", img: "/assets/mots/cp3/cp3.2.jpg" },
-                    { name: "cp3", img: "/assets/mots/cp3/cp3.3.jpg" },
-                    { name: "cp3", img: "/assets/mots/cp3/cp3.4.jpg" },
-                    { name: "cp3", img: "/assets/mots/cp3/cp3.5.jpg" },
-                    { name: "cp3", img: "/assets/mots/cp3/cp3.6.jpg" },
-                    { name: "cp3", img: "/assets/mots/cp3/cp3.7.jpg" },
-                    { name: "cp3", img: "/assets/mots/cp3/cp3.8.jpg" },
-                ]
-            },
-            {
-                name: "CONCEPT PHOTO 4",
-                image: [
-                    { name: "cp4", img: "/assets/mots/cp4/cp4.1.jpg" },
-                    { name: "cp4", img: "/assets/mots/cp4/cp4.2.jpg" },
-                    { name: "cp4", img: "/assets/mots/cp4/cp4.3.jpg" },
-                    { name: "cp4", img: "/assets/mots/cp4/cp4.4.jpg" },
-                    { name: "cp4", img: "/assets/mots/cp4/cp4.5.jpg" },
-                    { name: "cp4", img: "/assets/mots/cp4/cp4.6.jpg" },
-                    { name: "cp4", img: "/assets/mots/cp4/cp4.7.jpg" },
-                    { name: "cp4", img: "/assets/mots/cp4/cp4.8.jpg" },
-                ]
-            }
-        ],
         // PtButton: [
         //     {
-        //         name: "TEASER PHOTO",
+        //         name: "CONCEPT PHOTO 1",
         //         image: [
-        //             { name: "dynamite", img: "/assets/dynamite.png" },
-        //             { name: "dv", img: "/assets/dynamite/dv.jpg" },
-        //             { name: "dkj", img: "/assets/dynamite/djk.jpg" },
-        //             { name: "drm", img: "/assets/dynamite/drm.jpg" },
-        //             { name: "djin", img: "/assets/dynamite/djin.jpg" },
-        //             { name: "dsuga", img: "/assets/dynamite/dsuga.jpg" },
-        //             { name: "dhope", img: "/assets/dynamite/dhope.jpg" },
-        //             { name: "djm", img: "/assets/dynamite/djm.jpg" },
-        //             { name: "promotion", img: "/assets/dynamite/promotion.jpg" },
+        //             { name: "cp1", img: "/assets/mots/cp1/cp1.1.jpg" },
+        //             { name: "cp1", img: "/assets/mots/cp1/cp1.2.jpg" },
+        //             { name: "cp1", img: "/assets/mots/cp1/cp1.3.jpg" },
+        //             { name: "cp1", img: "/assets/mots/cp1/cp1.4.jpg" },
+        //             { name: "cp1", img: "/assets/mots/cp1/cp1.5.jpg" },
+        //             { name: "cp1", img: "/assets/mots/cp1/cp1.6.jpg" },
+        //             { name: "cp1", img: "/assets/mots/cp1/cp1.7.jpg" },
+        //             { name: "cp1", img: "/assets/mots/cp1/cp1.8.jpg" },
         //         ]
         //     },
         //     {
-        //         name: "GROUP TEASER PHOTO 1",
+        //         name: "CONCEPT PHOTO 2",
         //         image: [
-        //             { name: "dgp", img: "/assets/dynamite/dgp.jpg" },
+        //             { name: "cp2", img: "/assets/mots/cp2/cp2.1.jpg" },
+        //             { name: "cp2", img: "/assets/mots/cp2/cp2.2.jpg" },
+        //             { name: "cp2", img: "/assets/mots/cp2/cp2.3.jpg" },
+        //             { name: "cp2", img: "/assets/mots/cp2/cp2.4.jpg" },
+        //             { name: "cp2", img: "/assets/mots/cp2/cp2.5.jpg" },
+        //             { name: "cp2", img: "/assets/mots/cp2/cp2.6.jpg" },
+        //             { name: "cp2", img: "/assets/mots/cp2/cp2.7.jpg" },
+        //             { name: "cp2", img: "/assets/mots/cp2/cp2.8.jpg" },
         //         ]
         //     },
         //     {
-        //         name: "GROUP TEASER PHOTO 2",
+        //         name: "CONCEPT PHOTO 3",
         //         image: [
-        //             { name: "dgp2", img: "/assets/dynamite/dgp2.jpg" },
+        //             { name: "cp3", img: "/assets/mots/cp3/cp3.1.jpg" },
+        //             { name: "cp3", img: "/assets/mots/cp3/cp3.2.jpg" },
+        //             { name: "cp3", img: "/assets/mots/cp3/cp3.3.jpg" },
+        //             { name: "cp3", img: "/assets/mots/cp3/cp3.4.jpg" },
+        //             { name: "cp3", img: "/assets/mots/cp3/cp3.5.jpg" },
+        //             { name: "cp3", img: "/assets/mots/cp3/cp3.6.jpg" },
+        //             { name: "cp3", img: "/assets/mots/cp3/cp3.7.jpg" },
+        //             { name: "cp3", img: "/assets/mots/cp3/cp3.8.jpg" },
         //         ]
         //     },
         //     {
-        //         name: "REMIX TEASER PHOTO",
+        //         name: "CONCEPT PHOTO 4",
         //         image: [
-        //             { name: "drv", img: "/assets/dynamite/drv.jpg" },
-        //             { name: "drrm", img: "/assets/dynamite/drrm.jpg" },
-        //             { name: "drjm", img: "/assets/dynamite/drjm.jpg" },
-        //             { name: "drs", img: "/assets/dynamite/drs.jpg" },
-        //             { name: "drjin", img: "/assets/dynamite/drjin.jpg" },
-        //             { name: "drhope", img: "/assets/dynamite/drhope.jpg" },
-        //             { name: "drjk", img: "/assets/dynamite/drjk.jpg" },
+        //             { name: "cp4", img: "/assets/mots/cp4/cp4.1.jpg" },
+        //             { name: "cp4", img: "/assets/mots/cp4/cp4.2.jpg" },
+        //             { name: "cp4", img: "/assets/mots/cp4/cp4.3.jpg" },
+        //             { name: "cp4", img: "/assets/mots/cp4/cp4.4.jpg" },
+        //             { name: "cp4", img: "/assets/mots/cp4/cp4.5.jpg" },
+        //             { name: "cp4", img: "/assets/mots/cp4/cp4.6.jpg" },
+        //             { name: "cp4", img: "/assets/mots/cp4/cp4.7.jpg" },
+        //             { name: "cp4", img: "/assets/mots/cp4/cp4.8.jpg" },
         //         ]
         //     }
         // ],
+        PtButton: [
+            {
+                name: "TEASER PHOTO",
+                image: [
+                    { name: "dynamite", img: "/assets/dynamite.png" },
+                    { name: "dv", img: "/assets/dynamite/dv.jpg" },
+                    { name: "dkj", img: "/assets/dynamite/djk.jpg" },
+                    { name: "drm", img: "/assets/dynamite/drm.jpg" },
+                    { name: "djin", img: "/assets/dynamite/djin.jpg" },
+                    { name: "dsuga", img: "/assets/dynamite/dsuga.jpg" },
+                    { name: "dhope", img: "/assets/dynamite/dhope.jpg" },
+                    { name: "djm", img: "/assets/dynamite/djm.jpg" },
+                    { name: "promotion", img: "/assets/dynamite/promotion.jpg" },
+                ]
+            },
+            {
+                name: "GROUP TEASER PHOTO 1",
+                image: [
+                    { name: "dgp", img: "/assets/dynamite/dgp.jpg" },
+                ]
+            },
+            {
+                name: "GROUP TEASER PHOTO 2",
+                image: [
+                    { name: "dgp2", img: "/assets/dynamite/dgp2.jpg" },
+                ]
+            },
+            {
+                name: "REMIX TEASER PHOTO",
+                image: [
+                    { name: "drv", img: "/assets/dynamite/drv.jpg" },
+                    { name: "drrm", img: "/assets/dynamite/drrm.jpg" },
+                    { name: "drjm", img: "/assets/dynamite/drjm.jpg" },
+                    { name: "drs", img: "/assets/dynamite/drs.jpg" },
+                    { name: "drjin", img: "/assets/dynamite/drjin.jpg" },
+                    { name: "drhope", img: "/assets/dynamite/drhope.jpg" },
+                    { name: "drjk", img: "/assets/dynamite/drjk.jpg" },
+                ]
+            }
+        ],
         
-        Verion: [
-            { name: "", url: "" },
-            { name: "", url: "" },
-            { name: "", url: "" },
+        Version: [
+            
         ],
         ConceptClips: [
 
@@ -282,7 +280,7 @@ export const data = {
             { name: "'BLACK SWAN' ART FILM", url: "https://www.youtube.com/embed/vGbuUFRdYqU" },
             { name: "COMEBACK TRAILER : EGO", url: "https://www.youtube.com/embed/LmApDbvNCXg" }
         ],
-        Verion: [
+        Version: [
             { name: "'ON' KINETIC MANIFESTO FILM", url: "https://www.youtube.com/embed/gwMa6gpoE9I" },
             { name: "'ON' MV", url: "https://www.youtube.com/embed/mPVDGOVjRQ0" },
             { name: "'BLACK SWAN' MV", url: "https://www.youtube.com/embed/0lapF4DQPKQ" },
@@ -396,7 +394,7 @@ export const data = {
             { name: "MV TEASER 2", url: "https://www.youtube.com/embed/1zDd-3J1nTg" },
             { name: "'Boy With Luv (Feat. Halsey)' MV", url: "https://www.youtube.com/embed/XsX3ATc3FbA" },
         ],
-        Verion: [
+        Version: [
             {
                 name: "'Boy With Luv (Feat. Halsey)' MV ('ARMY With Luv' ver.)",
                 url: "https://www.youtube.com/embed/62E_xyj_oDA"

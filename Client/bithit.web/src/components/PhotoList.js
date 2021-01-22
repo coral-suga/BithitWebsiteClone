@@ -61,39 +61,53 @@ export default function PhotoList(params) {
         <>
             {isData ?
                 <Grid container spacing={1}>
-                    <Grid item xs={12}>
-                    <img
-                            className={classes.img}
-                            src={steps[activeStep].img}
 
-                        />
-                        
+                    <Grid item xs={1} />
+
+                    <Grid item xs={10}>
+                        <Grid container spacing={1}>
+                            <Grid item xs={1}>
+                                <div style={{ display: 'flex', flexDirection: 'column', paddingTop: '40vh', justifyContent: 'center', textAlign: 'center' }}>
+                                    <div>
+                                        <IconButton style={{ color: 'white' }}
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                steps.length == activeStep ? setActiveStep(0) : setActiveStep(activeStep - 1);
+                                            }} disabled={activeStep == 0}>
+                                            <KeyboardArrowLeft />
+                                        </IconButton>
+                                    </div>
+                                </div>
+                            </Grid>
+                            <Grid item xs={10} >
+                                <img
+                                    className={classes.img}
+                                    src={steps[activeStep].img}
+
+                                />
+                            </Grid>
+
+                            <Grid item xs={1}>
+                                <div style={{ display: 'flex',color: 'white',  flexDirection: 'column', paddingTop: '40vh', justifyContent: 'center', textAlign: 'center' }}>
+                                    <div>
+                                        <IconButton style={{color: 'white'}}
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                (steps.length - 1 <= activeStep ? setActiveStep(activeStep - (steps.length - 1)) : setActiveStep(activeStep + 1))
+                                            }}
+                                        >
+                                            <KeyboardArrowRight />
+                                        </IconButton>
+                                    </div>
+                                </div>
+                            </Grid>
+                        </Grid>
                     </Grid>
-                    
-                    <Grid item xs={12}>
-                        <MobileStepper variant={null} steps={5} position='static' activeStep={activeStep}
-                            style={{ backgroundColor: '#1E1E1D' }}
-                            nextButton={
-                                <IconButton onClick={(e) => {
-                                    // setActiveStep(activeStep + 1); 
-                                    e.preventDefault();
-                                    (steps.length - 1 <= activeStep ? setActiveStep(activeStep - (steps.length - 1)) : setActiveStep(activeStep + 1))
-                                }}
-                                >
-                                    <KeyboardArrowRight />
-                                </IconButton>
-                            }
-                            backButton={
-                                <IconButton onClick={(e) => {
-                                    e.preventDefault();
-                                    steps.length == activeStep ? setActiveStep(0) : setActiveStep(activeStep - 1);
-                                }} disabled={activeStep == 0}>
-                                    <KeyboardArrowLeft />
-                                </IconButton>
-                            }
-                        >
-                        </MobileStepper>
+
+                    <Grid item xs={1}>
+
                     </Grid>
+
                 </Grid> : null
             }
         </>

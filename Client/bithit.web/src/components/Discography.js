@@ -76,7 +76,7 @@ export default function Discography(params) {
 
                     </Grid>
                     <Grid item xs={3}>
-                        <div className='imgContent' onClick={() => goToDetail("Persona","")}>
+                        <div className='imgContent'  onClick={() => goToDetail("Mots","#455EE8","#2E14EC")}>
                             <img src="/assets/loveyourself/loveys.jpg" className='image' />
                             <div className='imgDesc'>
                                 <p className='text'>REPACKAGE ALBUM</p>
@@ -86,7 +86,7 @@ export default function Discography(params) {
 
                     </Grid>
                     <Grid item xs={3}>
-                        <div className='imgContent' onClick={() => goToDetail("Mots","")}>
+                        <div className='imgContent' onClick={() => goToDetail("Mots","#455EE8","#2E14EC")}>
                             <img src="/assets/sad/sad.jpg" className='image' />
                             <div className='imgDesc'>
                                 <p className='text'>3RD FULL-LENGTH ALBUM</p>
@@ -100,7 +100,7 @@ export default function Discography(params) {
                 <Grid container spacing={4}>
                     <Grid item xs={1} />
                     <Grid item xs={3}>
-                        <div className='imgContent' onClick={() => goToDetail("Persona","")}>
+                        <div className='imgContent'  onClick={() => goToDetail("Mots","#455EE8","#2E14EC")}>
                             <img src="/assets/cover/her.jpg" className='image' />
                             <div className='imgDesc'>
                                 <p className='text'>THE 5TH MINI ALBUM</p>
@@ -110,7 +110,7 @@ export default function Discography(params) {
 
                     </Grid>
                     <Grid item xs={3}>
-                        <div className='imgContent' onClick={() => goToDetail("Mots","")}>
+                        <div className='imgContent'  onClick={() => goToDetail("Mots","#455EE8","#2E14EC")}>
                             <img src="/assets/cover/ynwal.jpg" className='image' />
                             <div className='imgDesc'>
                                 <p className='text'>2ND SPECIAL ALBUM</p>
@@ -120,7 +120,7 @@ export default function Discography(params) {
 
                     </Grid>
                     <Grid item xs={3}>
-                        <div className='imgContent' onClick={() => goToDetail("Persona","")}>
+                        <div className='imgContent'  onClick={() => goToDetail("Mots","#455EE8","#2E14EC")}>
                             <img src="/assets/cover/wings.jpg" className='image' />
                             <div className='imgDesc'>
                                 <p className='text'>2ND FULL-LENGTH ALBUM</p>
@@ -134,7 +134,7 @@ export default function Discography(params) {
                 <Grid container spacing={4}>
                     <Grid item xs={1} />
                     <Grid item xs={3}>
-                        <div className='imgContent' onClick={() => goToDetail("Persona","")}>
+                        <div className='imgContent'  onClick={() => goToDetail("Mots","#455EE8","#2E14EC")}>
                             <img src="/assets/cover/yfv.jpg" className='image' />
                             <div className='imgDesc'>
                                 <p className='text'>1ST SPECIAL ALBUM</p>
@@ -144,7 +144,7 @@ export default function Discography(params) {
 
                     </Grid>
                     <Grid item xs={3}>
-                        <div className='imgContent' onClick={() => goToDetail("Mots","")}>
+                        <div className='imgContent'  onClick={() => goToDetail("Mots","#455EE8","#2E14EC")}>
                             <img src="/assets/cover/pt2.jpg" className='image' />
                             <div className='imgDesc'>
                                 <p className='text'>THE 4TH MINI ALBUM</p>
@@ -154,7 +154,7 @@ export default function Discography(params) {
 
                     </Grid>
                     <Grid item xs={3}>
-                        <div className='imgContent' onClick={() => goToDetail("Persona","")}>
+                        <div className='imgContent'  onClick={() => goToDetail("Mots","#455EE8","#2E14EC")}>
                             <img src="/assets/cover/pt1.jpg" className='image' />
                             <div className='imgDesc'>
                                 <p className='text'>THE 3RD MINI ALBUM</p>
@@ -168,7 +168,7 @@ export default function Discography(params) {
                 <Grid container spacing={4}>
                     <Grid item xs={1} />
                     <Grid item xs={3}>
-                        <div className='imgContent' onClick={() => goToDetail("Persona","")}>
+                        <div className='imgContent'  onClick={() => goToDetail("Mots","#455EE8","#2E14EC")}>
                             <img src="/assets/cover/dw.jpg" className='image' />
                             <div className='imgDesc'>
                                 <p className='text'>1ST FULL-LENGHTH ALBUM</p>
@@ -178,7 +178,7 @@ export default function Discography(params) {
 
                     </Grid>
                     <Grid item xs={3}>
-                        <div className='imgContent' onClick={() => goToDetail("Mots","")}>
+                        <div className='imgContent'  onClick={() => goToDetail("Mots","#455EE8","#2E14EC")}>
                             <img src="/assets/cover/skool.jpg" className='image' />
                             <div className='imgDesc'>
                                 <p className='text'>3RD FULL-LENGTH ALBUM</p>
@@ -188,7 +188,7 @@ export default function Discography(params) {
 
                     </Grid>
                     <Grid item xs={3}>
-                        <div className='imgContent' onClick={() => goToDetail("Persona","")}>
+                        <div className='imgContent' onClick={() => goToDetail("Mots","#455EE8","#2E14EC")}>
                             <img src="/assets/cover/rul8.jpg" className='image' />
                             <div className='imgDesc'>
                                 <p className='text'>THE 6TH MINI ALBUM</p>
@@ -202,7 +202,7 @@ export default function Discography(params) {
                 <Grid container spacing={4}>
                     <Grid item xs={1} />
                     <Grid item xs={3}>
-                        <div className='imgContent' onClick={() => goToDetail("Persona","")}>
+                        <div className='imgContent' onClick={() => goToDetail("Mots","#455EE8","#2E14EC")}>
                             <img src="/assets/cover/cool.jpg" className='image' />
                             <div className='imgDesc'>
                                 <p className='text'>REPACKAGE ALBUM</p>

@@ -4,7 +4,7 @@ import bluehour from '../assets/bluehour.png';
 import dynamite from '../assets/dynamite.png';
 import mots7 from '../assets/mots7.png';
 import dream from '../assets/dream.png';
-import { Button, IconButton, makeStyles, MobileStepper } from '@material-ui/core';
+import { Button, IconButton, makeStyles, Grid } from '@material-ui/core';
 import { useKeenSlider } from 'keen-slider/react';
 import "keen-slider/keen-slider.min.css"
 import SwipeableViews from 'react-swipeable-views';
@@ -59,23 +59,23 @@ export default function AlbumSlideShow(params) {
     const steps = [
         {
             lable: 'BE',
-            image: { be }
+            image: "/assets/be.png"
         },
         {
             lable: 'Blue Hour',
-            image: { bluehour }
+            image: "/assets/bluehour.png"
         },
         {
             lable: 'Dynamite',
-            image: { dynamite }
+            image: "/assets/dynamite.png"
         },
         {
             lable: 'Dream Chapter Eternity',
-            image: { dream }
+            image: "/assets/dream.png"
         },
         {
             lable: 'Map of the soul',
-            image: { mots7 }
+            image: "/assets/mots7.png"
         },
     ]
     const classes = useStyle();
@@ -90,29 +90,47 @@ export default function AlbumSlideShow(params) {
     }
     return (
         <>
-            <div onClick={(e) => { e.preventDefault(); params.onAlbumClick() }}>
-                <img
-                    className={classes.img}
-                    src={showImage()}
-                    alt={steps[activeStep].label}
-                />
+            <Grid container spacing={1}>
+                <Grid item xs={1}>
+                    <div style={{ display: 'flex', flexDirection: 'column', paddingTop: '40vh', justifyContent: 'center', textAlign: 'center' }}>
+                        <div>
+                            <IconButton style={{ color: 'black' }}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    steps.length == activeStep ? setActiveStep(0) : setActiveStep(activeStep - 1);
+                                }} disabled={activeStep == 0}>
+                                <KeyboardArrowLeft />
+                            </IconButton>
+                        </div>
+                    </div>
+                </Grid>
+                <Grid item xs={10} >
+                    <div onClick={(e) => { e.preventDefault(); params.onAlbumClick() }}>
+                        <img
+                            className={classes.img}
+                            src={steps[activeStep].image}
+                            alt={steps[activeStep].label}
+                        />
 
-            </div>
-            <div>
-                <MobileStepper variant={null} steps={5} position='static' activeStep={activeStep}
-                    nextButton={
-                        <IconButton onClick={(e) => { setActiveStep(activeStep + 1); e.preventDefault(); }} disabled={activeStep == (steps.length - 1)}>
-                            <KeyboardArrowRight />
-                        </IconButton>
-                    }
-                    backButton={
-                        <IconButton onClick={(e) => { e.preventDefault(); setActiveStep(activeStep - 1); }} disabled={activeStep == 0}>
-                            <KeyboardArrowLeft />
-                        </IconButton>
-                    }
-                >
-                </MobileStepper>
-            </div>
+                    </div>
+                </Grid>
+
+                <Grid item xs={1}>
+                    <div style={{ display: 'flex',  flexDirection: 'column', paddingTop: '40vh', justifyContent: 'center', textAlign: 'center' }}>
+                        <div>
+                            <IconButton style={{ color: 'black' }}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    (steps.length - 1 <= activeStep ? setActiveStep(activeStep - (steps.length - 1)) : setActiveStep(activeStep + 1))
+                                }}
+                            >
+                                <KeyboardArrowRight />
+                            </IconButton>
+                        </div>
+                    </div>
+                </Grid>
+            </Grid>
+            
         </>
     )
 }
