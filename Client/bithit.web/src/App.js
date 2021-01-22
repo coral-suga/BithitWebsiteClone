@@ -8,6 +8,8 @@ import Test from './Test.js'
 import Discography from './components/Discography';
 import AlbumDetail from './components/AlbumDetail';
 import AlbumInfo from './components/AlbumInfo';
+import Schedule from './components/Schedule';
+import TourComponent from './components/TourComponent';
 export default () => {
   return (
     <Layout>
@@ -16,6 +18,8 @@ export default () => {
       <Route path='/discography' component={Discography} />
       <Route path='/detailAlbum' component={AlbumDetail} />
       <Route path='/albumInfo' component={AlbumInfo} />
+      <Route path='/schedule' component={Schedule} />
+      <Route path='/tour' component={TourComponent} />
     </Layout>
   );
 }

@@ -205,8 +205,20 @@ function Layout(params) {
                                                         params.history.push('/discography')
                                                     }}
                                                 >DISCOGRAPHY</ListItem>
-                                                <ListItem className={classes.musiclistItem}>SCHEDULE</ListItem>
-                                                <ListItem className={classes.musiclistItem}>TOUR</ListItem>
+                                                <ListItem className={classes.musiclistItem}
+                                                    onClick={(e) => {
+                                                        setMenuOpen(false);
+                                                        setOpen(false);
+                                                        params.history.push('/schedule')
+                                                    }}
+                                                >SCHEDULE</ListItem>
+                                                <ListItem className={classes.musiclistItem}
+                                                    onClick={(e) => {
+                                                        setMenuOpen(false);
+                                                        setOpen(false);
+                                                        params.history.push('/tour')
+                                                    }}
+                                                >TOUR</ListItem>
                                             </List>
 
                                         </FormControl>
